@@ -1,7 +1,17 @@
 html {
+  --main-aqua: rgb(208, 248, 248);
   --header-height: 60px;
 
   font-size: 100%;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body,
+html {
+  height: 100%;
 }
 
 * {
@@ -10,11 +20,15 @@ html {
   padding: 0;
 }
 
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
 img {
   max-width: 100%;
   vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
 }
