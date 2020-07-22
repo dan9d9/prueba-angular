@@ -1,0 +1,106 @@
+{
+  "result": [
+    {
+      "id": "7154",
+      "first_name": "Wilson",
+      "last_name": "Kertzmann",
+      "gender": "male",
+      "dob": "1990-12-19",
+      "email": "huels.virgie@example.com",
+      "phone": "+16564988923",
+      "website": "https://www.conroy.org/est-vero-itaque-fugiat-laborum-consectetur",
+      "address": "7700 Fisher Light Suite 222\nRitchieville, NC 38818",
+      "status": "active",
+      "_links": {
+        "self": { "href": "https://gorest.co.in/public-api/users/7154" },
+        "edit": { "href": "https://gorest.co.in/public-api/users/7154" },
+        "avatar": { "href": "https://lorempixel.com/250/250/people/?12997" }
+      }
+    },
+    {
+      "id": "7157",
+      "first_name": "TestUser",
+      "last_name": "Effertz",
+      "gender": "male",
+      "dob": "1949-12-31",
+      "email": "jkozey@example.org",
+      "phone": "+1-462-949-9428",
+      "website": "http://jerde.com/est-vel-harum-est-magnam",
+      "address": "813 Virgil Glens\nOmertown, VT 87015-1113",
+      "status": "active",
+      "_links": {
+        "self": { "href": "https://gorest.co.in/public-api/users/7157" },
+        "edit": { "href": "https://gorest.co.in/public-api/users/7157" },
+        "avatar": { "href": "https://lorempixel.com/250/250/people/?85584" }
+      }
+    },
+    {
+      "id": "7158",
+      "first_name": "Araceli",
+      "last_name": "Mueller",
+      "gender": "female",
+      "dob": "1945-11-13",
+      "email": "swift.rodolfo@example.com",
+      "phone": "1-684-480-5758",
+      "website": "http://romaguera.com/aliquid-et-aliquam-possimus-rerum-sint.html",
+      "address": "6068 Eveline Cliffs\nBlakeborough, NY 99147-2848",
+      "status": "inactive",
+      "_links": {
+        "self": { "href": "https://gorest.co.in/public-api/users/7158" },
+        "edit": { "href": "https://gorest.co.in/public-api/users/7158" },
+        "avatar": { "href": "https://lorempixel.com/250/250/people/?10506" }
+      }
+    },
+    {
+      "id": "7159",
+      "first_name": "Lynn",
+      "last_name": "Wisoky",
+      "gender": "female",
+      "dob": "2005-09-30",
+      "email": "keeling.morgan@example.net",
+      "phone": "+1-214-486-1241",
+      "website": "http://schaden.com/accusantium-rerum-in-minus-odit.html",
+      "address": "92567 Nicolas Lodge Suite 568\nRaeview, WA 79299",
+      "status": "active",
+      "_links": {
+        "self": { "href": "https://gorest.co.in/public-api/users/7159" },
+        "edit": { "href": "https://gorest.co.in/public-api/users/7159" },
+        "avatar": { "href": "https://lorempixel.com/250/250/people/?56790" }
+      }
+    },
+    {
+      "id": "7160",
+      "first_name": "Ophelia",
+      "last_name": "Raynor",
+      "gender": "female",
+      "dob": "1985-06-13",
+      "email": "annamae.abbott@example.org",
+      "phone": "525-369-4863 x3196",
+      "website": "http://www.huels.net/deleniti-sed-sunt-autem-ad.html",
+      "address": "92868 Nolan Throughway\nSouth Savanah, CA 06971",
+      "status": "inactive",
+      "_links": {
+        "self": { "href": "https://gorest.co.in/public-api/users/7160" },
+        "edit": { "href": "https://gorest.co.in/public-api/users/7160" },
+        "avatar": { "href": "https://lorempixel.com/250/250/people/?29879" }
+      }
+    },
+    {
+      "id": "7161",
+      "first_name": "Kyle",
+      "last_name": "King",
+      "gender": "male",
+      "dob": "2006-09-16",
+      "email": "anicolas@example.com",
+      "phone": "1-373-903-4425",
+      "website": "http://keeling.com/rerum-ipsam-aliquam-at",
+      "address": "990 Lorenza Dale Suite 058\nNew Ernest, NY 31885-2882",
+      "status": "inactive",
+      "_links": {
+        "self": { "href": "https://gorest.co.in/public-api/users/7161" },
+        "edit": { "href": "https://gorest.co.in/public-api/users/7161" },
+        "avatar": { "href": "https://lorempixel.com/250/250/people/?30441" }
+      }
+    }
+  ]
+}

@@ -6,6 +6,10 @@ import { HomeComponent } from './home/home.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { DuenosComponent } from './duenos/duenos.component';
 import { HeaderComponent } from './header/header.component';
+import { UserContainerComponent } from './shared/user-container/user-container.component';
+import { UserListComponent } from './shared/user-container/user-list/user-list.component';
+import { UserDetailsComponent } from './shared/user-container/user-details/user-details.component';
+import { UserItemComponent } from './shared/user-container/user-list/user-item/user-item.component';
 
 @NgModule({
   declarations: [
@@ -13,12 +17,14 @@ import { HeaderComponent } from './header/header.component';
     HomeComponent,
     BusquedaComponent,
     DuenosComponent,
-    HeaderComponent
+    HeaderComponent,
+    UserContainerComponent,
+    UserListComponent,
+    UserDetailsComponent,
+    UserItemComponent,
   ],
-  imports: [
-    BrowserModule
-  ],
+  imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
