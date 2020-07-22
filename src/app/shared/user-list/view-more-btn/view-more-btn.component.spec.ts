@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserContainerComponent } from './user-container.component';
+import { ViewMoreBtnComponent } from './view-more-btn.component';
 
-describe('UserContainerComponent', () => {
-  let component: UserContainerComponent;
-  let fixture: ComponentFixture<UserContainerComponent>;
+describe('ViewMoreBtnComponent', () => {
+  let component: ViewMoreBtnComponent;
+  let fixture: ComponentFixture<ViewMoreBtnComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserContainerComponent ]
+      declarations: [ ViewMoreBtnComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserContainerComponent);
+    fixture = TestBed.createComponent(ViewMoreBtnComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
