@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter } from '@angular/core';
 
 import { User } from './shared/user-list/user-item/user.model';
+import { token } from './config';
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
@@ -21,7 +22,7 @@ export class UsersService {
         `https://gorest.co.in/public-api/users?page=${page}`,
         {
           headers: {
-            Authorization: 'Bearer jGIxQYZ8gwTEButw-zsJ3iqHnB-PYF9-3UBE',
+            Authorization: `Bearer ${token}`,
           },
         }
       )
@@ -48,7 +49,7 @@ export class UsersService {
         `https://gorest.co.in/public-api/users/${id}`,
         {
           headers: {
-            Authorization: 'Bearer jGIxQYZ8gwTEButw-zsJ3iqHnB-PYF9-3UBE',
+            Authorization: `Bearer ${token}`,
           },
         }
       )
