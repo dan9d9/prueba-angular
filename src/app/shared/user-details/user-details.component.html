@@ -5,8 +5,14 @@
   </div>
   <ng-template #userSelected>
     <ul class="user-details__details">
-      <li *ngFor="let detail of userDetails">{{ detail }}</li>
+      <li *ngFor="let detail of renderedDetails">{{ detail }}</li>
     </ul>
-    <button>Add to Favorites</button>
+    <button
+      class="user-details__btn"
+      (click)="onAddFavorites()"
+      [disabled]="isDisabled"
+    >
+      {{ isDisabled ? "Favorited!" : "Add to Favorites" }}
+    </button>
   </ng-template>
 </div>
