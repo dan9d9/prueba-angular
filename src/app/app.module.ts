@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -9,7 +11,6 @@ import { HeaderComponent } from './header/header.component';
 import { UserListComponent } from './shared/user-list/user-list.component';
 import { UserDetailsComponent } from './shared/user-details/user-details.component';
 import { UserItemComponent } from './shared/user-list/user-item/user-item.component';
-import { ViewMoreBtnComponent } from './shared/user-list/view-more-btn/view-more-btn.component';
 import { AddFavoriteBtnComponent } from './shared/user-details/add-favorite-btn/add-favorite-btn.component';
 import { SearchComponent } from './busqueda/search/search.component';
 import { FavoritesModalComponent } from './header/favorites-modal/favorites-modal.component';
@@ -24,12 +25,11 @@ import { FavoritesModalComponent } from './header/favorites-modal/favorites-moda
     UserListComponent,
     UserDetailsComponent,
     UserItemComponent,
-    ViewMoreBtnComponent,
     AddFavoriteBtnComponent,
     SearchComponent,
     FavoritesModalComponent,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, CommonModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
