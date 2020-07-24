@@ -1,3 +1,7 @@
+.home-section__wrapper {
+  width: 70%;
+}
+
 .home-section__button {
   padding: 2em;
   font-size: 2rem;
