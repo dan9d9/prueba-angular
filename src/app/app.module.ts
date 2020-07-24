@@ -11,7 +11,6 @@ import { HeaderComponent } from './header/header.component';
 import { UserListComponent } from './shared/user-list/user-list.component';
 import { UserDetailsComponent } from './shared/user-details/user-details.component';
 import { UserItemComponent } from './shared/user-list/user-item/user-item.component';
-import { AddFavoriteBtnComponent } from './shared/user-details/add-favorite-btn/add-favorite-btn.component';
 import { SearchComponent } from './busqueda/search/search.component';
 import { FavoritesModalComponent } from './header/favorites-modal/favorites-modal.component';
 
@@ -25,7 +24,6 @@ import { FavoritesModalComponent } from './header/favorites-modal/favorites-moda
     UserListComponent,
     UserDetailsComponent,
     UserItemComponent,
-    AddFavoriteBtnComponent,
     SearchComponent,
     FavoritesModalComponent,
   ],
