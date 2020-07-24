@@ -12,8 +12,6 @@ export class UserListComponent implements OnInit {
   users: User[];
   currentPage: number = 1;
   isFetching: boolean = false;
-  isLoadingMore: boolean = false;
-
   currentUser: User;
 
   constructor(private usersService: UsersService) {}
@@ -32,9 +30,7 @@ export class UserListComponent implements OnInit {
   }
 
   onLoadMore() {
-    this.isLoadingMore = true;
     this.currentPage++;
     this.usersService.fetchUsers(this.currentPage);
-    this.isLoadingMore = false;
   }
 }

@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { User } from './user.model';
 import { UsersService } from '../../../users.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-user-item',
