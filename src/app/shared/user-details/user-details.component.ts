@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { UsersService } from '../../users.service';
 import { FavoritesService } from '../../header/favorites.service';
-import { User } from '../user-list/user-item/user.model';
+import { User } from '../user.model';
 
 @Component({
   selector: 'app-user-details',

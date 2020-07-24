@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FavoritesService } from './favorites.service';
-import { User } from '../shared/user-list/user-item/user.model';
+import { User } from '../shared/user.model';
 
 @Component({
   selector: 'app-header',
