@@ -1,4 +1,8 @@
-<li class="user-item" (click)="onUserClick(user.id)">
+<li
+  [ngClass]="{ active: isActive }"
+  class="user-item"
+  (click)="onUserClick(user.id)"
+>
   <p>{{ user.first_name }} {{ user.last_name }}</p>
   <p>{{ user.gender }}</p>
   <p>{{ user.status }}</p>

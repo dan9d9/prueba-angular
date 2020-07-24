@@ -14,6 +14,8 @@ export class UserListComponent implements OnInit {
   isFetching: boolean = false;
   isLoadingMore: boolean = false;
 
+  currentUser: User;
+
   constructor(private usersService: UsersService) {}
 
   ngOnInit(): void {
@@ -22,6 +24,10 @@ export class UserListComponent implements OnInit {
     this.usersService.allUsersChanged.subscribe((users: User[]) => {
       this.users = users;
       this.isFetching = false;
+    });
+
+    this.usersService.currentUserChanged.subscribe((user: User) => {
+      this.currentUser = user;
     });
   }
 

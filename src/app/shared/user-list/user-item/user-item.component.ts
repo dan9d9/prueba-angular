@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { User } from './user.model';
 import { UsersService } from '../../../users.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-user-item',
@@ -10,12 +11,22 @@ import { UsersService } from '../../../users.service';
 })
 export class UserItemComponent implements OnInit {
   @Input() user: User;
+  @Input() currentUser: User;
+  isActive: boolean = false;
 
   constructor(private usersServices: UsersService) {}
 
-  onUserClick(id) {
-    this.usersServices.fetchSingleUser(id);
+  ngOnInit(): void {
+    this.usersServices.currentUserChanged.subscribe(() => {
+      this.isActive = false;
+    });
+
+    if (this.currentUser && this.user.id === this.currentUser.id) {
+      this.isActive = true;
+    }
   }
 
-  ngOnInit(): void {}
+  onUserClick(userId) {
+    this.usersServices.fetchSingleUser(userId);
+  }
 }

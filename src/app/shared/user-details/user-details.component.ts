@@ -12,7 +12,9 @@ export class UserDetailsComponent implements OnInit {
   currentUser: User;
   userDetails: string[];
 
-  constructor(private usersService: UsersService) {
+  constructor(private usersService: UsersService) {}
+
+  ngOnInit(): void {
     this.usersService.currentUserChanged.subscribe((user: User) => {
       this.currentUser = user;
       const tempDetails = [];
@@ -21,10 +23,7 @@ export class UserDetailsComponent implements OnInit {
           tempDetails.push(this.currentUser[key]);
         }
       }
-      console.log('temp details: ', tempDetails);
       this.userDetails = [...tempDetails];
     });
   }
-
-  ngOnInit(): void {}
 }

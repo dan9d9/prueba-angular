@@ -13,3 +13,7 @@
 
   cursor: pointer;
 }
+
+.active {
+  background-color: rgb(81, 165, 137);
+}
