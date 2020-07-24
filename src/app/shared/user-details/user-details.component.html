@@ -1,3 +1,12 @@
-<article class="user-details">
-  <p>nothing here yet</p>
-</article>
+<div class="user-details">
+  <h2 class="user-details__title">User Details</h2>
+  <div class="user-details__empty" *ngIf="!currentUser; else userSelected">
+    <h3>No user selected</h3>
+  </div>
+  <ng-template #userSelected>
+    <ul class="user-details__details">
+      <li *ngFor="let detail of userDetails">{{ detail }}</li>
+    </ul>
+    <button>Add to Favorites</button>
+  </ng-template>
+</div>

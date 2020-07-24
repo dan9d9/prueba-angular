@@ -1,0 +1,31 @@
+.user-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border: solid 2px black;
+  border-radius: var(--border-radius);
+
+  height: 100%;
+}
+
+.user-details__title {
+  margin: 0.5em 0;
+}
+
+.user-details__empty {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: auto;
+
+  border: solid 2px black;
+  border-radius: var(--border-radius);
+}
+
+.user-details__empty h3 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -1,6 +1,5 @@
-<li class="user-item util__flex-row">
-  <p>first name</p>
-  <p>last name</p>
-  <p>gender</p>
-  <p>status</p>
+<li class="user-item" (click)="onUserClick(user.id)">
+  <p>{{ user.first_name }} {{ user.last_name }}</p>
+  <p>{{ user.gender }}</p>
+  <p>{{ user.status }}</p>
 </li>
