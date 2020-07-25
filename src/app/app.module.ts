@@ -10,7 +10,7 @@ import { DuenosComponent } from './duenos/duenos.component';
 import { HeaderComponent } from './header/header.component';
 import { UserListComponent } from './shared/user-list/user-list.component';
 import { UserDetailsComponent } from './shared/user-details/user-details.component';
-import { UserItemComponent } from './shared/user-list/user-item/user-item.component';
+import { UserItemComponent } from './shared/user-item/user-item.component';
 import { SearchComponent } from './busqueda/search/search.component';
 import { FavoritesModalComponent } from './header/favorites-modal/favorites-modal.component';
 

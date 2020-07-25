@@ -1,1 +1,35 @@
-<p>favorites-modal works!</p>
+<div class="favorites-modal__wrapper">
+  <div class="favorites-modal">
+    <header class="favorites-modal__header">
+      <div class="favorites-modal__mataGatos">
+        <img
+          src="../../assets/icons/favorites-heart.svg"
+          alt="nice heart"
+          class="favorites-modal__header-img"
+        />
+        <p>{{ favoriteUsers.length }}</p>
+      </div>
+      <h2>Favorites</h2>
+      <button (click)="onCloseModal()">Close</button>
+    </header>
+    <div
+      *ngIf="favoriteUsers.length === 0; else showFavoriteUsers"
+      class="favorites-modal__empty"
+    >
+      <h3>You don't have any favorites yet!</h3>
+      <img
+        src="../../../assets/icons/favorites__broken-heart.png"
+        alt="broken heart"
+      />
+    </div>
+    <ng-template #showFavoriteUsers>
+      <ul class="favorites-modal__list">
+        <app-user-item
+          *ngFor="let user of favoriteUsers"
+          class="favorites-modal__favorite"
+          [user]="user"
+        ></app-user-item>
+      </ul>
+    </ng-template>
+  </div>
+</div>

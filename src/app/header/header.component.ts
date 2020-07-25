@@ -12,6 +12,7 @@ import { User } from '../shared/user.model';
 export class HeaderComponent implements OnInit {
   favoritesCount: number;
   catsKilled: number = 0;
+  showModal: boolean = false;
 
   constructor(
     private favoritesService: FavoritesService,
@@ -22,9 +23,18 @@ export class HeaderComponent implements OnInit {
     this.favoritesService.favoritesChanged.subscribe((users: User[]) => {
       this.favoritesCount = users.length;
     });
+    this.favoritesService.modalDisplayChanged.subscribe(
+      (isModalDisplayed: boolean) => {
+        this.showModal = isModalDisplayed;
+      }
+    );
 
     this.mataGatosService.anotherCatKilled.subscribe((numKilled: number) => {
       this.catsKilled = numKilled;
     });
+  }
+
+  onShowModal() {
+    this.favoritesService.toggleModal();
   }
 }
