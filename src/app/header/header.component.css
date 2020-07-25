@@ -17,6 +17,9 @@ header {
 .header__div {
   display: flex;
   align-items: center;
+}
+
+.header__div:last-child {
   cursor: pointer;
 }
 

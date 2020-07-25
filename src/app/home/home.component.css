@@ -1,8 +1,20 @@
-.home-section__wrapper {
-  width: 70%;
+.home-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 100%;
+  width: 90%;
+
+  margin: 0 auto;
+}
+
+.home-wrapper div {
+  margin-bottom: var(--header-height);
 }
 
 .home-section__button {
+  width: 100%;
   padding: 2em;
   font-size: 2rem;
   color: black;

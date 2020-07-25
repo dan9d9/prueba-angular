@@ -10,7 +10,7 @@ import { User } from '../shared/user.model';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  favoritesCount: number;
+  favoritesCount: number = 0;
   catsKilled: number = 0;
   showModal: boolean = false;
 
