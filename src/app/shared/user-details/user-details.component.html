@@ -1,7 +1,11 @@
 <div class="user-details">
   <h2 class="user-details__title">User Details</h2>
-  <div class="user-details__empty" *ngIf="!currentUser; else userSelected">
-    <h3>No user selected</h3>
+  <div
+    class="user-details__empty"
+    *ngIf="!displayedUser || isLoading; else userSelected"
+  >
+    <h3 *ngIf="!isLoading; else loading">No user selected</h3>
+    <ng-template #loading><h3>Loading User Details...</h3></ng-template>
   </div>
   <ng-template #userSelected>
     <ul class="user-details__details">

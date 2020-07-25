@@ -11,8 +11,8 @@ import { FavoritesService } from '../../header/favorites.service';
 })
 export class UserItemComponent implements OnInit {
   @Input() user: User;
-  @Input() currentUser: User;
   @Input() isFavoriteUser: boolean;
+
   isActive: boolean = false;
 
   constructor(
@@ -21,17 +21,20 @@ export class UserItemComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.usersServices.currentUserChanged.subscribe(() => {
+    this.usersServices.selectedUserChanged.subscribe(() => {
       this.isActive = false;
     });
 
-    if (this.currentUser && this.user.id === this.currentUser.id) {
+    const selectedUser = this.usersServices.getSelectedUser();
+
+    if (selectedUser?.id === this.user.id) {
       this.isActive = true;
     }
   }
 
   onUserClick() {
-    this.usersServices.fetchSingleUser(this.user.id);
+    this.usersServices.changeSelectedUser(this.user);
+    this.isActive = true;
   }
 
   onRemoveFavorite() {

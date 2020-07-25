@@ -7,16 +7,24 @@ import { MataGatosService } from './header/mataGatos.service';
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
-  allUsersChanged = new EventEmitter<User[]>();
-  currentUserChanged = new EventEmitter<User>();
+  allUsersChanged = new EventEmitter<{
+    users: User[];
+    changedUser: User | null;
+  }>();
+  selectedUserChanged = new EventEmitter<User>();
 
   private allUsers: User[] = [];
-  private currentUser: User;
+  private selectedUser: User;
 
   constructor(
     private http: HttpClient,
     private mataGatosService: MataGatosService
   ) {}
+
+  changeSelectedUser(user: User) {
+    this.selectedUser = user;
+    this.selectedUserChanged.emit(this.selectedUser);
+  }
 
   fetchUsers(page) {
     this.http
@@ -32,7 +40,10 @@ export class UsersService {
         this.mataGatosService.killCat();
 
         this.allUsers = [...this.allUsers, ...responseData.result];
-        this.allUsersChanged.emit(this.allUsers.slice());
+        this.allUsersChanged.emit({
+          users: this.allUsers.slice(),
+          changedUser: null,
+        });
       });
   }
 
@@ -49,21 +60,19 @@ export class UsersService {
       .subscribe((responseData) => {
         this.mataGatosService.killCat();
 
+        const changedUser = { ...responseData.result };
         const thisUserIdx = this.allUsers.findIndex((user) => user.id === id);
 
-        this.currentUser = { ...responseData.result };
-        this.allUsers[thisUserIdx] = this.currentUser;
+        this.allUsers[thisUserIdx] = { ...changedUser };
 
-        this.currentUserChanged.emit({ ...this.currentUser });
-        this.allUsersChanged.emit(this.allUsers.slice());
+        this.allUsersChanged.emit({
+          users: this.allUsers.slice(),
+          changedUser,
+        });
       });
   }
 
-  getAllUsers() {
-    return this.allUsers.slice();
-  }
-
-  getCurrentUser() {
-    return { ...this.currentUser };
+  getSelectedUser() {
+    return { ...this.selectedUser };
   }
 }

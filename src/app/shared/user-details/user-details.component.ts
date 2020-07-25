@@ -10,10 +10,12 @@ import { User } from '../user.model';
   styleUrls: ['./user-details.component.css'],
 })
 export class UserDetailsComponent implements OnInit {
-  currentUser: User;
+  displayedUser: User;
   renderedDetails: string[];
   favoriteUsers: User[] = [];
   isDisabled: boolean = false;
+
+  isLoading: boolean = false;
 
   constructor(
     private usersService: UsersService,
@@ -21,30 +23,42 @@ export class UserDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.usersService.currentUserChanged.subscribe((user: User) => {
-      this.currentUser = user;
-      this.isDisabled = this.favoritesService.isCurrentUserAFavorite(
-        this.currentUser.id
-      );
+    this.usersService.selectedUserChanged.subscribe(
+      (currentlySelected: User) => {
+        this.isLoading = true;
+        this.usersService.fetchSingleUser(currentlySelected.id);
+      }
+    );
 
-      const tempDetails = [];
-      for (let key in this.currentUser) {
-        if (key !== 'id' && key !== '_links') {
-          tempDetails.push(this.currentUser[key]);
+    this.usersService.allUsersChanged.subscribe(
+      (changed: { users: User[]; changedUser: User | null }) => {
+        if (changed.changedUser !== null) {
+          this.displayedUser = changed.changedUser;
+          this.isDisabled = this.favoritesService.isCurrentUserAFavorite(
+            this.displayedUser.id
+          );
+
+          const tempDetails = [];
+          for (let key in this.displayedUser) {
+            if (key !== 'id' && key !== '_links') {
+              tempDetails.push(this.displayedUser[key]);
+            }
+          }
+          this.renderedDetails = [...tempDetails];
+          this.isLoading = false;
         }
       }
-      this.renderedDetails = [...tempDetails];
-    });
+    );
 
     this.favoritesService.favoritesChanged.subscribe((favorites: User[]) => {
       this.favoriteUsers = [...favorites];
       this.isDisabled = this.favoritesService.isCurrentUserAFavorite(
-        this.currentUser.id
+        this.displayedUser.id
       );
     });
   }
 
   onAddFavorites() {
-    this.favoritesService.addFavorite(this.currentUser);
+    this.favoritesService.addFavorite(this.displayedUser);
   }
 }
