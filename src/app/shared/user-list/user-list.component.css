@@ -8,6 +8,7 @@
 
   border: solid 2px black;
   border-radius: var(--border-radius);
+  background-color: #88efcc;
 }
 
 .user-list__title {
@@ -34,11 +35,12 @@
 .user-list__list {
   overflow: auto;
   width: 100%;
-  padding: 0.5em;
+  padding: 0.5em 1em;
+  margin-bottom: 0.5em;
 
   border: solid 1px black;
   border-radius: var(--border-radius);
-  margin-bottom: 0.5em;
+  background-color: white;
 }
 
 .user-list__btn {

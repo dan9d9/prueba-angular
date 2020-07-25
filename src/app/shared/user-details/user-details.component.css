@@ -6,6 +6,7 @@
   border: solid 2px black;
   border-radius: var(--border-radius);
 
+  padding: 0 0.5em;
   height: 100%;
 }
 
@@ -15,19 +16,33 @@
 
 .user-details__empty {
   position: relative;
-  width: 120px;
-  height: 120px;
   margin: auto;
-
-  border: solid 2px black;
-  border-radius: var(--border-radius);
 }
 
 .user-details__empty h3 {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(0, -50%);
+}
+
+.user-details__details {
+  width: 100%;
+  height: 100%;
+  padding: 0.5em 1em;
+  margin-bottom: 0.5em;
+
+  border: solid 1px black;
+  border-radius: var(--border-radius);
+  background-color: white;
+  list-style-type: disc;
+
+  overflow: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.user-details__detail {
+  margin-left: 0.5em;
 }
 
 .user-details__btn {

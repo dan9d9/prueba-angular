@@ -3,11 +3,11 @@
   justify-content: space-around;
 
   height: 80%;
-  width: 90%;
-  margin: 2em auto 0;
+  margin-top: 2em;
 }
 
 .duenos-wrapper div {
-  width: 500px;
+  min-width: 350px;
+  max-width: 500px;
   height: 100%;
 }

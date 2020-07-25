@@ -8,12 +8,14 @@
 
   border: solid 1px black;
   border-radius: var(--border-radius);
+  background-color: #baeedf;
 
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
 
   cursor: pointer;
 }
 
 .active {
-  background-color: rgb(81, 165, 137);
+  background-color: #51a589;
+  color: white;
 }

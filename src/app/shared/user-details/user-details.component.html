@@ -5,7 +5,9 @@
   </div>
   <ng-template #userSelected>
     <ul class="user-details__details">
-      <li *ngFor="let detail of renderedDetails">{{ detail }}</li>
+      <li class="user-details__detail" *ngFor="let detail of renderedDetails">
+        {{ detail }}
+      </li>
     </ul>
     <button
       class="user-details__btn"
