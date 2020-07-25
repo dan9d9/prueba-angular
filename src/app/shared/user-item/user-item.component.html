@@ -1,5 +1,8 @@
 <li
-  [ngClass]="{ active: isActive, isFavoriteUser: isFavoriteUser }"
+  [ngClass]="{
+    active: isActive && !isFavoriteUser,
+    isFavoriteUser: isFavoriteUser
+  }"
   class="user-item"
   (click)="onUserClick()"
 >
