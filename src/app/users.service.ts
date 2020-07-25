@@ -3,18 +3,20 @@ import { Injectable, EventEmitter } from '@angular/core';
 
 import { User } from './shared/user.model';
 import { token } from './config';
+import { MataGatosService } from './header/mataGatos.service';
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
   allUsersChanged = new EventEmitter<User[]>();
   currentUserChanged = new EventEmitter<User>();
-  // userByPageChanged = new EventEmitter<Array<{ page: number; users: User[] }>>();
 
   private allUsers: User[] = [];
-  // private usersByPage: Array<{ page: number; users: User[] }> = [];
   private currentUser: User;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private mataGatosService: MataGatosService
+  ) {}
 
   fetchUsers(page) {
     this.http
@@ -27,19 +29,10 @@ export class UsersService {
         }
       )
       .subscribe((responseData) => {
+        this.mataGatosService.killCat();
+
         this.allUsers = [...this.allUsers, ...responseData.result];
         this.allUsersChanged.emit(this.allUsers.slice());
-
-        // const usersByPage = this.usersByPage.find(
-        //   (userPage) => userPage.page === page
-        // );
-        // if (!usersByPage) {
-        //   this.usersByPage.push({ page, users: [...responseData.result] });
-        // } else {
-        //   usersByPage.users = [...responseData.result];
-        // }
-
-        // console.log('after fetch', this.allUsers);
       });
   }
 
@@ -54,6 +47,8 @@ export class UsersService {
         }
       )
       .subscribe((responseData) => {
+        this.mataGatosService.killCat();
+
         const thisUserIdx = this.allUsers.findIndex((user) => user.id === id);
 
         this.currentUser = { ...responseData.result };
@@ -67,13 +62,6 @@ export class UsersService {
   getAllUsers() {
     return this.allUsers.slice();
   }
-
-  // getUsersByPage(page) {
-  //   const usersPage = this.usersByPage.find(
-  //     (usersPage) => usersPage.page === page
-  //   );
-  //   return usersPage.users.slice();
-  // }
 
   getCurrentUser() {
     return { ...this.currentUser };
