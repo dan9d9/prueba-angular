@@ -47,4 +47,9 @@ ul {
 
 button {
   cursor: pointer;
+  padding: 0.2em 0.5em;
+
+  border: solid 1px black;
+  background-color: white;
+  border-radius: var(--border-radius);
 }
