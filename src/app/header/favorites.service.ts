@@ -15,7 +15,14 @@ export class FavoritesService {
     this.favoritesChanged.emit(this.favorites.slice());
   }
 
-  isCurrentUserAFavorite(userId) {
+  removeUser(userId: string) {
+    const thisUserIdx = this.favorites.findIndex((user) => user.id === userId);
+
+    this.favorites.splice(thisUserIdx, 1);
+    this.favoritesChanged.emit(this.favorites.slice());
+  }
+
+  isCurrentUserAFavorite(userId): boolean {
     return this.favorites.map((user: User) => user.id).includes(userId);
   }
 
@@ -24,7 +31,7 @@ export class FavoritesService {
     this.modalDisplayChanged.emit(this.isModalDisplayed);
   }
 
-  getFavorites() {
+  getFavorites(): User[] {
     return this.favorites.slice();
   }
 }

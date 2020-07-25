@@ -28,6 +28,7 @@
           *ngFor="let user of favoriteUsers"
           class="favorites-modal__favorite"
           [user]="user"
+          [isFavoriteUser]="true"
         ></app-user-item>
       </ul>
     </ng-template>

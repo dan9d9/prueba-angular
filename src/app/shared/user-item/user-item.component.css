@@ -19,3 +19,7 @@
   background-color: #51a589;
   color: white;
 }
+
+.isFavoriteUser {
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+}
