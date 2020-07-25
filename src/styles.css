@@ -1,5 +1,7 @@
 html {
   --main-aqua: rgb(208, 248, 248);
+  --main-green: #88efcc;
+  --active: #51a589;
 
   --header-height: 60px;
 

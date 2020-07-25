@@ -8,7 +8,7 @@
 
   border: solid 2px black;
   border-radius: var(--border-radius);
-  background-color: #88efcc;
+  background-color: var(--main-green);
 }
 
 .user-list__title {

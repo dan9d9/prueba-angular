@@ -8,6 +8,7 @@
 
   padding: 0 0.5em;
   height: 100%;
+  background-color: var(--main-green);
 }
 
 .user-details__title {
@@ -31,7 +32,7 @@
 
   border: solid 1px black;
   border-radius: var(--border-radius);
-  background-color: white;
+  background-color: var(--active);
   list-style-type: disc;
 
   overflow: auto;
