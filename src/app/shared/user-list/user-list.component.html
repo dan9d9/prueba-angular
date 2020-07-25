@@ -7,6 +7,12 @@
     <ul class="user-list__list">
       <app-user-item *ngFor="let user of users" [user]="user"></app-user-item>
     </ul>
-    <button class="user-list__btn" (click)="onLoadMore()">Load More</button>
+    <button
+      *ngIf="totalPages > 0 && currentPage !== totalPages"
+      class="user-list__btn"
+      (click)="onLoadMore()"
+    >
+      Load More
+    </button>
   </ng-template>
 </div>

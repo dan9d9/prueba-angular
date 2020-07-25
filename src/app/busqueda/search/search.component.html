@@ -1,1 +1,9 @@
-<p>search works!</p>
+<div class="search-bar">
+  <input [(ngModel)]="searchField" type="text" />
+  <button
+    [disabled]="!searchField || searchField.length < 2"
+    (click)="onSearch()"
+  >
+    Search
+  </button>
+</div>
