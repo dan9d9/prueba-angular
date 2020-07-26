@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../users.service';
 import { FavoritesService } from '../../header/favorites.service';
 import { User } from '../user.model';
+import { dobConverter } from '../../../helpers/dobConverter';
 
 @Component({
   selector: 'app-user-details',
@@ -14,7 +15,6 @@ export class UserDetailsComponent implements OnInit {
   renderedDetails: string[];
   favoriteUsers: User[] = [];
   isDisabled: boolean = false;
-
   isLoading: boolean = false;
 
   constructor(
@@ -40,7 +40,9 @@ export class UserDetailsComponent implements OnInit {
 
           const tempDetails = [];
           for (let key in this.displayedUser) {
-            if (key !== 'id' && key !== '_links') {
+            if (key === 'dob') {
+              tempDetails.push(dobConverter(this.displayedUser[key]));
+            } else if (key !== 'id' && key !== '_links') {
               tempDetails.push(this.displayedUser[key]);
             }
           }

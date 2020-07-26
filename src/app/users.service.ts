@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter } from '@angular/core';
 
 import { User } from './shared/user.model';
-import { token, baseURL } from './config';
+import { token, baseURL } from '../config';
 import { MataGatosService } from './header/mataGatos.service';
 
 @Injectable({ providedIn: 'root' })
