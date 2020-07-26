@@ -20,12 +20,14 @@ export class UsersService {
     currentPage: number;
     searchField: string;
   }>();
+  userPhotoFetched = new EventEmitter<string>();
 
   private allUsers: User[] = [];
   private selectedUser: User;
   private searchedUsers: User[] = [];
   private pageCount: number;
   private currentPage: number;
+  private userPhoto: string;
 
   constructor(
     private http: HttpClient,
@@ -85,7 +87,6 @@ export class UsersService {
   }
 
   fetchSearchedUsers(searchField: string, page: number) {
-    console.log('page: ', page);
     this.http
       .get<{ _meta: any; result: User[] }>(
         `${baseURL}/users?first_name=${searchField}&page=${page}`,
@@ -96,6 +97,8 @@ export class UsersService {
         }
       )
       .subscribe((responseData) => {
+        this.mataGatosService.killCat();
+
         this.selectedUserChanged.emit();
         this.pageCount = responseData._meta.pageCount;
         this.currentPage = page;
@@ -112,6 +115,22 @@ export class UsersService {
           searchField,
         });
         console.log(responseData);
+      });
+  }
+
+  fetchUserPhoto(userID) {
+    console.log(userID);
+    this.http
+      .get<{ _meta: any; result: any }>(`${baseURL}/photos/${userID}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .subscribe((responseData) => {
+        console.log(responseData);
+        this.mataGatosService.killCat();
+        this.userPhoto = responseData.result.thumbnail;
+        this.userPhotoFetched.emit(this.userPhoto);
       });
   }
 

@@ -13,6 +13,7 @@
         <span>{{ detail[0] }}</span> : {{ detail[1] }}
       </li>
     </ul>
+    <img class="user-details__user-photo" [src]="userPhoto" alt="user avatar" />
     <button
       class="user-details__btn"
       (click)="onAddFavorites()"
