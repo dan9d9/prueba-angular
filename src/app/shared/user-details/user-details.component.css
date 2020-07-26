@@ -30,10 +30,6 @@
   padding: 0.5em 1em;
   margin-bottom: 0.5em;
 
-  border: solid 1px black;
-  border-radius: var(--border-radius);
-  background-color: var(--active);
-
   overflow: auto;
 
   display: flex;
