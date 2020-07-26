@@ -9,11 +9,6 @@ header {
   background-color: var(--main-aqua);
 }
 
-.header__title {
-  font-family: "Patrick Hand", cursive;
-  font-size: 2.5rem;
-}
-
 .header__div {
   display: flex;
   align-items: center;
@@ -28,4 +23,29 @@ header {
   height: 35px;
 
   margin-right: 0.5em;
+}
+
+.header__nav ul {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+}
+
+.header__nav-item {
+  font-family: "Patrick Hand", cursive;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.header__nav-item:visited {
+  color: rgb(79, 134, 97);
+}
+
+.header__nav-item:not(:last-child) {
+  margin-right: 1em;
+}
+
+.active {
+  color: rgb(41, 143, 75);
+  font-size: 2.5rem;
 }

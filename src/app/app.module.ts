@@ -17,9 +17,10 @@ import { SearchComponent } from './busqueda/search/search.component';
 import { FavoritesModalComponent } from './header/favorites-modal/favorites-modal.component';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'duenos', component: DuenosComponent },
-  { path: 'busqueda', component: BusquedaComponent },
+  { path: 'owners', component: DuenosComponent },
+  { path: 'search', component: BusquedaComponent },
+  { path: 'home', component: HomeComponent },
+  { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
 @NgModule({
   declarations: [

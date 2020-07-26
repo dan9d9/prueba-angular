@@ -36,6 +36,7 @@ export class UserListComponent implements OnInit {
         this.currentPage = changed.currentPage;
         this.users = changed.users;
         this.isFetching = false;
+        this.searchField = '';
       }
     );
 

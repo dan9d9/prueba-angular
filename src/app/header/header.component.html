@@ -7,7 +7,18 @@
     />
     <p>{{ catsKilled }}</p>
   </div>
-  <h1 class="header__title">Home</h1>
+  <nav class="header__nav">
+    <ul>
+      <li class="header__nav-item" *ngFor="let link of links">
+        <a
+          routerLinkActive="active"
+          routerLink="/{{ link }}"
+          class="home-section__button"
+          >{{ link }}</a
+        >
+      </li>
+    </ul>
+  </nav>
   <div (click)="onShowModal()" class="header__div">
     <img
       src="../../assets/icons/favorites-heart.svg"

@@ -9,9 +9,9 @@ import { MataGatosService } from './header/mataGatos.service';
 export class UsersService {
   allUsersChanged = new EventEmitter<{
     users: User[];
-    changedUser: User | null;
-    pageCount: number | null;
-    currentPage: number | null;
+    changedUser?: User;
+    pageCount: number;
+    currentPage: number;
   }>();
   selectedUserChanged = new EventEmitter<User>();
   searchedUsersChanged = new EventEmitter<{
@@ -85,9 +85,10 @@ export class UsersService {
   }
 
   fetchSearchedUsers(searchField: string, page: number) {
+    console.log('page: ', page);
     this.http
       .get<{ _meta: any; result: User[] }>(
-        `${baseURL}/users?first_name=${searchField}&?page=${page}`,
+        `${baseURL}/users?first_name=${searchField}&page=${page}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

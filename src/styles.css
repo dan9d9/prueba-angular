@@ -1,6 +1,7 @@
 html {
-  --main-aqua: rgb(208, 248, 248);
-  --main-green: #88efcc;
+  --main-bg: rgb(248, 253, 252);
+  --main-aqua: rgb(188, 243, 243);
+  --main-green: rgb(188, 243, 206);
   --active: #51a589;
 
   --header-height: 60px;
@@ -31,7 +32,7 @@ section {
 
   padding: 1em 2em;
   margin: 0 auto;
-  /* background-color: aquamarine; */
+  background-color: var(--main-bg);
 }
 
 img {
@@ -40,6 +41,7 @@ img {
 }
 
 a {
+  color: black;
   text-decoration: none;
 }
 
