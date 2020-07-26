@@ -33,7 +33,6 @@
   border: solid 1px black;
   border-radius: var(--border-radius);
   background-color: var(--active);
-  list-style-type: disc;
 
   overflow: auto;
 

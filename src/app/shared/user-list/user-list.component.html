@@ -8,7 +8,7 @@
       <app-user-item *ngFor="let user of users" [user]="user"></app-user-item>
     </ul>
     <button
-      *ngIf="totalPages > 0 && currentPage !== totalPages"
+      [disabled]="totalPages <= 1 || currentPage === totalPages"
       class="user-list__btn"
       (click)="onLoadMore()"
     >

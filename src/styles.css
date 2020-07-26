@@ -43,10 +43,6 @@ a {
   text-decoration: none;
 }
 
-ul {
-  list-style-type: none;
-}
-
 button {
   cursor: pointer;
   padding: 0.3em 0.5em;

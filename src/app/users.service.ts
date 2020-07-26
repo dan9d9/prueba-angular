@@ -87,7 +87,7 @@ export class UsersService {
   fetchSearchedUsers(searchField: string, page: number) {
     this.http
       .get<{ _meta: any; result: User[] }>(
-        `${baseURL}/users?first_name=${searchField}`,
+        `${baseURL}/users?first_name=${searchField}&?page=${page}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
