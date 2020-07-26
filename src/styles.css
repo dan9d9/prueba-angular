@@ -1,12 +1,17 @@
 html {
   --main-bg: rgb(248, 253, 252);
   --main-aqua: rgb(188, 243, 243);
+  --dark-aqua: rgb(161, 207, 207);
   --main-green: rgb(188, 243, 206);
   --active: #51a589;
 
   --header-height: 60px;
 
-  --border-radius: 5px;
+  --default-border: solid 1px black;
+  --default-box-shadow: 1px 1px 1px 0px black;
+  --border-radius: 20px;
+
+  --transition-time: 0.2s;
 
   font-size: 100%;
 }
@@ -35,6 +40,19 @@ section {
   background-color: var(--main-bg);
 }
 
+h2,
+h3 {
+  font-family: "Patrick Hand", cursive;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
 img {
   max-width: 100%;
   vertical-align: middle;
@@ -47,9 +65,22 @@ a {
 
 button {
   cursor: pointer;
-  padding: 0.3em 0.5em;
+  padding: 1em 1.5em;
 
-  border: solid 1px black;
+  border: var(--default-border);
   background-color: white;
   border-radius: var(--border-radius);
+
+  font-family: "Patrick Hand", cursive;
+  box-shadow: var(--default-box-shadow);
+  background-color: var(--main-aqua);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  transition: background-color var(--transition-time);
+}
+
+button:hover {
+  background-color: var(--dark-aqua);
 }

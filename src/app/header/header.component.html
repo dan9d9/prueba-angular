@@ -1,10 +1,18 @@
 <header>
   <div class="header__div">
     <img
+      *ngIf="catsKilled < 1; else ohNo"
       src="../../assets/icons/evil-kitty.svg"
-      alt="evil kitty face"
+      alt="happy kitty face"
       class="header__img"
     />
+    <ng-template #ohNo>
+      <img
+        src="../../assets/icons/surprised-kitty.png"
+        alt="surprised kitty face"
+        class="header__img"
+      />
+    </ng-template>
     <p>{{ catsKilled }}</p>
   </div>
   <nav class="header__nav">
