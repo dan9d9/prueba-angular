@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { UsersService } from '../../users.service';
 import { User } from '../user.model';
@@ -8,13 +9,15 @@ import { User } from '../user.model';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css'],
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent implements OnInit, OnDestroy {
   users: User[];
   currentPage: number = 1;
   totalPages: number;
   isFetching: boolean = false;
-
   searchField: string;
+
+  allChangedSub: Subscription;
+  searchChangedSub: Subscription;
 
   constructor(private usersService: UsersService) {}
 
@@ -22,7 +25,7 @@ export class UserListComponent implements OnInit {
     this.isFetching = true;
     this.usersService.fetchUsers(this.currentPage);
 
-    this.usersService.allUsersChanged.subscribe(
+    this.allChangedSub = this.usersService.allUsersChanged.subscribe(
       (changed: {
         users: User[];
         changedUser: User | null;
@@ -40,7 +43,7 @@ export class UserListComponent implements OnInit {
       }
     );
 
-    this.usersService.searchedUsersChanged.subscribe(
+    this.searchChangedSub = this.usersService.searchedUsersChanged.subscribe(
       (results: {
         users: User[];
         pageCount: number;
@@ -51,7 +54,6 @@ export class UserListComponent implements OnInit {
         this.totalPages = results.pageCount;
         this.users = [...results.users];
         this.searchField = results.searchField;
-        console.log(this.users);
       }
     );
   }
@@ -63,5 +65,10 @@ export class UserListComponent implements OnInit {
     } else {
       this.usersService.fetchUsers(this.currentPage);
     }
+  }
+
+  ngOnDestroy() {
+    this.allChangedSub.unsubscribe();
+    this.searchChangedSub.unsubscribe();
   }
 }
