@@ -1,5 +1,5 @@
 <div class="search-bar">
-  <input [(ngModel)]="searchField" type="text" />
+  <input [(ngModel)]="searchField" type="text" (keyup)="onSearchDebounce()" />
   <button
     [disabled]="!searchField || searchField.length < 2"
     (click)="onSearch()"

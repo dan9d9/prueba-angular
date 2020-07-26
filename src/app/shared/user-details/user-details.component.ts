@@ -12,7 +12,7 @@ import { dobConverter } from '../../../helpers/dobConverter';
 })
 export class UserDetailsComponent implements OnInit {
   displayedUser: User | null;
-  renderedDetails: string[];
+  renderedDetails: [][];
   favoriteUsers: User[] = [];
   isDisabled: boolean = false;
   isLoading: boolean = false;
@@ -45,9 +45,9 @@ export class UserDetailsComponent implements OnInit {
           const tempDetails = [];
           for (let key in this.displayedUser) {
             if (key === 'dob') {
-              tempDetails.push(dobConverter(this.displayedUser[key]));
+              tempDetails.push([[key], dobConverter(this.displayedUser[key])]);
             } else if (key !== 'id' && key !== '_links') {
-              tempDetails.push(this.displayedUser[key]);
+              tempDetails.push([[key], this.displayedUser[key]]);
             }
           }
           this.renderedDetails = [...tempDetails];
