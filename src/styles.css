@@ -5,7 +5,7 @@ html {
   --main-green: rgb(188, 243, 206);
   --active: #51a589;
 
-  --header-height: 60px;
+  --header-height: 80px;
 
   --default-border: solid 1px black;
   --default-box-shadow: 1px 1px 1px 0px black;
@@ -84,3 +84,9 @@ button {
 button:hover {
   background-color: var(--dark-aqua);
 }
+
+/* @media screen and (max-width: 480px) {
+  section {
+    padding: 1em 0;
+  }
+} */

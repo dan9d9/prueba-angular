@@ -96,6 +96,7 @@ export class UsersService {
         }
       )
       .subscribe((responseData) => {
+        this.selectedUserChanged.emit();
         this.pageCount = responseData._meta.pageCount;
         this.currentPage = page;
         if (page === 1) {

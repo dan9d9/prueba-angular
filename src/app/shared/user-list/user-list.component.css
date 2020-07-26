@@ -17,19 +17,8 @@
 
 .user-list__fetching {
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: max-content;
   margin: auto;
-
-  border: solid 2px black;
-  border-radius: 50%;
-}
-
-.user-list__fetching h3 {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .user-list__list {

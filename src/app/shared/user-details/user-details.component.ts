@@ -11,7 +11,7 @@ import { dobConverter } from '../../../helpers/dobConverter';
   styleUrls: ['./user-details.component.css'],
 })
 export class UserDetailsComponent implements OnInit {
-  displayedUser: User;
+  displayedUser: User | null;
   renderedDetails: string[];
   favoriteUsers: User[] = [];
   isDisabled: boolean = false;
@@ -25,8 +25,12 @@ export class UserDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.usersService.selectedUserChanged.subscribe(
       (currentlySelected: User) => {
-        this.isLoading = true;
-        this.usersService.fetchSingleUser(currentlySelected.id);
+        if (currentlySelected) {
+          this.isLoading = true;
+          this.usersService.fetchSingleUser(currentlySelected.id);
+        } else {
+          this.displayedUser = null;
+        }
       }
     );
 

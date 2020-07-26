@@ -10,7 +10,9 @@
 }
 
 .home-wrapper div {
+  width: 230px;
   margin-bottom: var(--header-height);
+  text-align: center;
 }
 
 .home-section__button {
@@ -19,19 +21,41 @@
   font-size: 2rem;
   color: black;
 
-  background-color: var(--main-aqua);
-  border: solid 1px black;
+  background-color: var(--main-green);
+  border: var(--default-border);
   box-shadow: 2px 1px 4px 0px black;
+  border-radius: var(--border-radius);
 
   transition: all 0.2s;
+  cursor: pointer;
 }
 
 .home-section__button:hover,
 .home-section__button:focus {
-  background-color: rgb(198, 226, 226);
+  background-color: rgb(152, 212, 177);
 }
 
 .home-section__button:active {
-  background-color: rgb(182, 211, 211);
+  background-color: rgb(121, 168, 140);
   box-shadow: 1px 1px 1px 1px black;
+}
+
+@media screen and (max-width: 700px) {
+  .home-wrapper {
+    width: 100%;
+  }
+
+  .home-section__button {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home-wrapper {
+    flex-direction: column;
+  }
+
+  .home-wrapper div {
+    margin-bottom: 0;
+  }
 }

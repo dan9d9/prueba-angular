@@ -4,10 +4,10 @@
 
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr;
-  justify-items: center;
+  align-items: center;
 
   border: solid 1px black;
-  border-radius: var(--border-radius);
+  border-radius: 8px;
   background-color: #baeedf;
 
   margin-bottom: 1em;
@@ -22,4 +22,5 @@
 .isFavoriteUser {
   cursor: default;
   grid-template-columns: 1.5fr 1fr 1fr 0.5fr;
+  padding: 0.5em;
 }
