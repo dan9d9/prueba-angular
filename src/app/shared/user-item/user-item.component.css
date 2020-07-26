@@ -8,7 +8,7 @@
 
   border: solid 1px black;
   border-radius: 8px;
-  background-color: #baeedf;
+  background-color: var(--item-color);
 
   margin-bottom: 1em;
 
@@ -16,7 +16,7 @@
 }
 
 .active {
-  background-color: #51a589;
+  background-color: var(--dark-green);
 }
 
 .isFavoriteUser {

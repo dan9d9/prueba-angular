@@ -25,7 +25,7 @@
   width: 60vw;
   min-width: 300px;
 
-  background-color: aquamarine;
+  background-color: var(--main-green);
   border: solid var(--modal-border-thickness) black;
   border-radius: var(--border-radius);
   z-index: 1;
@@ -44,7 +44,7 @@
 
   border-radius: calc(var(--border-radius) - var(--modal-border-thickness))
     calc(var(--border-radius) - var(--modal-border-thickness)) 0 0;
-  background-color: rgb(100, 201, 167);
+  background-color: var(--main-aqua);
 }
 
 .favorites-modal__mataGatos {

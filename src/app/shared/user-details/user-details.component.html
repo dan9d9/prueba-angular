@@ -10,7 +10,7 @@
   <ng-template #userSelected>
     <ul class="user-details__details">
       <li class="user-details__detail" *ngFor="let detail of renderedDetails">
-        {{ detail[0] }} : {{ detail[1] }}
+        <span>{{ detail[0] }}</span> : {{ detail[1] }}
       </li>
     </ul>
     <button

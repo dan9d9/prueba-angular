@@ -17,6 +17,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   ngOnInit(): void {}
 
   onSearch() {
+    clearTimeout(this.timeout);
     this.usersService.fetchSearchedUsers(this.searchField, 1);
   }
 
