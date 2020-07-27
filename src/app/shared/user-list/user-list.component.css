@@ -4,6 +4,7 @@
   align-items: center;
 
   height: 100%;
+  width: 100%;
   padding: 0 0.5em;
 
   border: solid 2px black;
@@ -23,7 +24,6 @@
 
 .user-list__list {
   overflow: auto;
-  width: 100%;
   padding: 0.5em 1em;
   margin-bottom: 0.5em;
 

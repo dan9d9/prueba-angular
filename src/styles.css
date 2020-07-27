@@ -25,12 +25,6 @@ body {
   background-color: var(--main-bg);
 }
 
-body,
-html,
-section {
-  height: 100%;
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -88,8 +82,8 @@ button:hover {
   background-color: var(--dark-aqua);
 }
 
-/* @media screen and (max-width: 480px) {
-  section {
-    padding: 1em 0;
-  }
-} */
+button[disabled] {
+  cursor: default;
+  background-color: rgb(233, 233, 233);
+  box-shadow: 0px 0px 0px 0px black;
+}

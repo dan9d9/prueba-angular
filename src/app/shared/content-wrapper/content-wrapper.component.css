@@ -1,0 +1,8 @@
+.flex-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 40%));
+  grid-template-rows: 100%;
+  justify-content: space-around;
+  height: 75vh;
+  padding-top: 2em;
+}

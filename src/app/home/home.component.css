@@ -1,22 +1,13 @@
-.home-wrapper {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-
-  height: 100%;
-  width: 90%;
-
-  margin: 0 auto;
-}
-
-.home-wrapper div {
-  width: 230px;
-  margin-bottom: var(--header-height);
-  text-align: center;
+div {
+  position: relative;
 }
 
 .home-section__button {
-  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
   padding: 2em;
   font-size: 2rem;
   color: black;
@@ -26,7 +17,7 @@
   box-shadow: 2px 1px 4px 0px black;
   border-radius: var(--border-radius);
 
-  transition: all 0.2s;
+  transition: all var(--transition-time);
   cursor: pointer;
 }
 

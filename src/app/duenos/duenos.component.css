@@ -1,12 +1,1 @@
-.duenos-wrapper {
-  display: flex;
-  justify-content: space-around;
 
-  height: 85%;
-  margin-top: 2em;
-}
-
-.duenos-wrapper div {
-  width: 40%;
-  height: 100%;
-}

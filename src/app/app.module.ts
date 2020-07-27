@@ -15,6 +15,7 @@ import { UserDetailsComponent } from './shared/user-details/user-details.compone
 import { UserItemComponent } from './shared/user-item/user-item.component';
 import { SearchComponent } from './busqueda/search/search.component';
 import { FavoritesModalComponent } from './header/favorites-modal/favorites-modal.component';
+import { ContentWrapperComponent } from './shared/content-wrapper/content-wrapper.component';
 
 const appRoutes: Routes = [
   { path: 'owners', component: DuenosComponent },
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
     UserItemComponent,
     SearchComponent,
     FavoritesModalComponent,
+    ContentWrapperComponent,
   ],
   imports: [
     FormsModule,
