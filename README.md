@@ -14,7 +14,7 @@ That's it for installation, now you can run the server!
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 
-### Extra Features
+## Extra Features
 
 The basic project contains all the required features, on top of the basic features I have added:
 * El contador MataGatos
@@ -23,7 +23,7 @@ The basic project contains all the required features, on top of the basic featur
 * Remove a favorite user from the favorites modal
 * Upon clicking on the mataGatos image, a log of all server requests are shown.
 
-### Improvements
+## Improvements
 
 Infinity scrolling, probably utilizing `ngx-infinite-scroll`
 I think there's room to make some more reusable components. The pages, for instance, are almost identical and could be extracted into one component. 
