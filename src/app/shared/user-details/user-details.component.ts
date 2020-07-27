@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Router, ResolveEnd, Event as NavigationEvent } from '@angular/router';
 
 import { UsersService } from '../services/users.service';
 import { FavoritesService } from '../services/favorites.service';
@@ -21,46 +20,26 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
   userPhoto: string;
 
   userChangedSub: Subscription;
-  userPhotoFetched: Subscription;
   allusersChanged: Subscription;
   favoritesChanged: Subscription;
-  routerSub: Subscription;
 
   constructor(
     private usersService: UsersService,
-    private favoritesService: FavoritesService,
-    private router: Router
+    private favoritesService: FavoritesService
   ) {}
 
   ngOnInit(): void {
-    this.routerSub = this.router.events.subscribe((event: NavigationEvent) => {
-      if (event instanceof ResolveEnd) {
-        console.log('resolve end', event);
-        const selectedUser = this.usersService.getSelectedUser();
-        if (selectedUser) {
-          this.displayedUser = selectedUser;
-        }
-      }
-    });
-
     this.userChangedSub = this.usersService.selectedUserChanged.subscribe(
       (currentlySelected: User) => {
         if (currentlySelected) {
           this.isLoading = true;
           this.usersService.fetchSingleUser(currentlySelected.id);
           this.userPhoto = currentlySelected._links.avatar.href;
-          // this.usersService.fetchUserPhoto(currentlySelected.id);
         } else {
           this.displayedUser = null;
         }
       }
     );
-
-    // this.userPhotoFetched = this.usersService.userPhotoFetched.subscribe(
-    //   (photo: string) => {
-    //     this.userPhoto = photo;
-    //   }
-    // );
 
     this.allusersChanged = this.usersService.allUsersChanged.subscribe(
       (changed: {
@@ -107,9 +86,7 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.userChangedSub.unsubscribe();
-    // this.userPhotoFetched.unsubscribe();
     this.allusersChanged.unsubscribe();
     this.favoritesChanged.unsubscribe();
-    this.routerSub.unsubscribe();
   }
 }

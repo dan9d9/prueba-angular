@@ -58,6 +58,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.favoritesModalSub = this.favoritesService.modalDisplayChanged.subscribe(
       (isModalDisplayed: boolean) => {
         this.showFavoritesModal = isModalDisplayed;
+
         if (this.showFavoritesModal === true) {
           document.body.style.overflow = 'hidden';
         } else {
@@ -77,7 +78,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.favoritesService.toggleModal();
   }
 
-  onToggleMataGatoslog() {
+  onToggleMataGatosLog() {
     this.showMataGatosLog = !this.showMataGatosLog;
   }
 

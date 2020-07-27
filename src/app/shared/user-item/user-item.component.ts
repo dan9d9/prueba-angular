@@ -1,20 +1,23 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 
 import { User } from '../user.model';
 import { UsersService } from '../services/users.service';
 import { FavoritesService } from '../services/favorites.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-item',
   templateUrl: './user-item.component.html',
   styleUrls: ['./user-item.component.css'],
 })
-export class UserItemComponent implements OnInit {
+export class UserItemComponent implements OnInit, OnDestroy {
   @Input() user: User;
   @Input() isFavoriteUser: boolean;
 
   isActive: boolean = false;
   userPhoto: string;
+
+  userChangedSub: Subscription;
 
   constructor(
     private usersServices: UsersService,
@@ -22,9 +25,11 @@ export class UserItemComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.usersServices.selectedUserChanged.subscribe(() => {
-      this.isActive = false;
-    });
+    this.userChangedSub = this.usersServices.selectedUserChanged.subscribe(
+      () => {
+        this.isActive = false;
+      }
+    );
 
     const selectedUser = this.usersServices.getSelectedUser();
 
@@ -45,5 +50,9 @@ export class UserItemComponent implements OnInit {
 
   onRemoveFavorite() {
     this.favoritesService.removeUser(this.user.id);
+  }
+
+  ngOnDestroy() {
+    this.userChangedSub.unsubscribe();
   }
 }

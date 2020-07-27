@@ -1,7 +1,7 @@
 <header>
   <div class="header__div">
     <img
-      (click)="onToggleMataGatoslog()"
+      (click)="onToggleMataGatosLog()"
       *ngIf="catsKilledLog.length < 1; else ohNo"
       src="../../assets/icons/evil-kitty.svg"
       alt="happy kitty face"
@@ -9,7 +9,7 @@
     />
     <ng-template #ohNo>
       <img
-        (click)="onToggleMataGatoslog()"
+        (click)="onToggleMataGatosLog()"
         src="../../assets/icons/surprised-kitty.png"
         alt="surprised kitty face"
         class="header__img"

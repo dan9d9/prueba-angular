@@ -36,6 +36,7 @@ export class UserListComponent implements OnInit, OnDestroy {
         this.totalPages = changed.pageCount;
         this.currentPage = changed.currentPage;
         this.isFetching = false;
+
         if (changed.searchField) {
           this.users = [...changed.searchedUsers];
           this.searchField = changed.searchField;
@@ -49,6 +50,7 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   onLoadMore() {
     this.currentPage++;
+
     if (this.searchField) {
       this.usersService.fetchSearchedUsers(this.searchField, this.currentPage);
     } else {
