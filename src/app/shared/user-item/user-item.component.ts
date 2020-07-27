@@ -14,6 +14,7 @@ export class UserItemComponent implements OnInit {
   @Input() isFavoriteUser: boolean;
 
   isActive: boolean = false;
+  userPhoto: string;
 
   constructor(
     private usersServices: UsersService,
@@ -29,6 +30,10 @@ export class UserItemComponent implements OnInit {
 
     if (selectedUser?.id === this.user.id) {
       this.isActive = true;
+    }
+
+    if (this.isFavoriteUser) {
+      this.userPhoto = this.user._links.avatar.href;
     }
   }
 

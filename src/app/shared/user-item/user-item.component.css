@@ -22,8 +22,13 @@
 
 .isFavoriteUser {
   cursor: default;
-  grid-template-columns: 1.5fr 1fr 1fr 0.5fr;
+  grid-template-columns: 60px auto auto auto auto;
+  justify-content: space-between;
   padding: 0.5em;
+}
+
+.user-item__user-photo {
+  border-radius: 50%;
 }
 
 .user-item__remove-btn:hover,

@@ -8,18 +8,24 @@
     <ng-template #loading><h3>Loading User Details...</h3></ng-template>
   </div>
   <ng-template #userSelected>
-    <ul class="user-details__details">
-      <li class="user-details__detail" *ngFor="let detail of renderedDetails">
-        <span>{{ detail[0] }}</span> : {{ detail[1] }}
-      </li>
-    </ul>
-    <img class="user-details__user-photo" [src]="userPhoto" alt="user avatar" />
-    <button
-      class="user-details__btn"
-      (click)="onAddFavorites()"
-      [disabled]="isDisabled"
-    >
-      {{ isDisabled ? "Favorited!" : "Add to Favorites" }}
-    </button>
+    <div class="user-item__grid-container">
+      <img
+        class="user-details__user-photo"
+        [src]="userPhoto"
+        alt="user avatar"
+      />
+      <ul class="user-details__details">
+        <li class="user-details__detail" *ngFor="let detail of renderedDetails">
+          <span>{{ detail[0] }}</span> : {{ detail[1] }}
+        </li>
+      </ul>
+      <button
+        class="user-details__btn"
+        (click)="onAddFavorites()"
+        [disabled]="isDisabled"
+      >
+        {{ isDisabled ? "Favorited!" : "Add to Favorites" }}
+      </button>
+    </div>
   </ng-template>
 </div>

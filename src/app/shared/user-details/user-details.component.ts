@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Router, ResolveEnd, Event as NavigationEvent } from '@angular/router';
 
 import { UsersService } from '../../users.service';
 import { FavoritesService } from '../../header/favorites.service';
@@ -23,13 +24,25 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
   userPhotoFetched: Subscription;
   allusersChanged: Subscription;
   favoritesChanged: Subscription;
+  routerSub: Subscription;
 
   constructor(
     private usersService: UsersService,
-    private favoritesService: FavoritesService
+    private favoritesService: FavoritesService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
+    this.routerSub = this.router.events.subscribe((event: NavigationEvent) => {
+      if (event instanceof ResolveEnd) {
+        console.log('resolve end', event);
+        const selectedUser = this.usersService.getSelectedUser();
+        if (selectedUser) {
+          this.displayedUser = selectedUser;
+        }
+      }
+    });
+
     this.userChangedSub = this.usersService.selectedUserChanged.subscribe(
       (currentlySelected: User) => {
         if (currentlySelected) {
@@ -97,5 +110,6 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
     // this.userPhotoFetched.unsubscribe();
     this.allusersChanged.unsubscribe();
     this.favoritesChanged.unsubscribe();
+    this.routerSub.unsubscribe();
   }
 }

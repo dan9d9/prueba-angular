@@ -6,6 +6,12 @@
   class="user-item"
   (click)="onUserClick()"
 >
+  <img
+    *ngIf="isFavoriteUser"
+    class="user-item__user-photo"
+    [src]="userPhoto"
+    alt="user avatar"
+  />
   <p>{{ user.first_name }} {{ user.last_name }}</p>
   <p>{{ user.gender }}</p>
   <p>{{ user.status }}</p>
