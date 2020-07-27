@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter } from '@angular/core';
 
 import { User } from '../user.model';
-import { token, baseURL } from '../../../config';
+import { token } from '../../../config';
 import { MataGatosService } from './mataGatos.service';
 
 @Injectable({ providedIn: 'root' })
@@ -23,6 +23,7 @@ export class UsersService {
   private searchField: string;
   private pageCount: number;
   private currentPage: number;
+  private baseURL = 'https://gorest.co.in/public-api';
 
   constructor(
     private http: HttpClient,
@@ -37,13 +38,16 @@ export class UsersService {
   fetchUsers(page: number) {
     this.searchField = '';
     this.http
-      .get<{ _meta: any; result: User[] }>(`${baseURL}/users?page=${page}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .get<{ _meta: any; result: User[] }>(
+        `${this.baseURL}/users?page=${page}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .subscribe((responseData) => {
-        this.mataGatosService.killCat(`${baseURL}/users?page=${page}`);
+        this.mataGatosService.killCat(`${this.baseURL}/users?page=${page}`);
 
         this.currentPage = responseData._meta.currentPage;
         this.pageCount = responseData._meta.pageCount;
@@ -61,13 +65,13 @@ export class UsersService {
 
   fetchSingleUser(id: string) {
     this.http
-      .get<{ _meta: {}; result: User }>(`${baseURL}/users/${id}`, {
+      .get<{ _meta: {}; result: User }>(`${this.baseURL}/users/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
       .subscribe((responseData) => {
-        this.mataGatosService.killCat(`${baseURL}/users/${id}`);
+        this.mataGatosService.killCat(`${this.baseURL}/users/${id}`);
 
         const changedUser = { ...responseData.result };
         const thisUserIdx = this.allUsers.findIndex((user) => user.id === id);
@@ -90,7 +94,7 @@ export class UsersService {
     this.searchField = searchField;
     this.http
       .get<{ _meta: any; result: User[] }>(
-        `${baseURL}/users?first_name=${searchField}&page=${page}`,
+        `${this.baseURL}/users?first_name=${searchField}&page=${page}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -99,7 +103,7 @@ export class UsersService {
       )
       .subscribe((responseData) => {
         this.mataGatosService.killCat(
-          `${baseURL}/users?first_name=${searchField}&page=${page}`
+          `${this.baseURL}/users?first_name=${searchField}&page=${page}`
         );
 
         this.selectedUserChanged.emit();
