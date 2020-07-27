@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { User } from '../user.model';
-import { UsersService } from '../../users.service';
-import { FavoritesService } from '../../header/favorites.service';
+import { UsersService } from '../services/users.service';
+import { FavoritesService } from '../services/favorites.service';
 
 @Component({
   selector: 'app-user-item',

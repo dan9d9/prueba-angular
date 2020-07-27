@@ -6,8 +6,8 @@ import {
 } from '@angular/router';
 import { Subscription } from 'rxjs';
 
-import { FavoritesService } from './favorites.service';
-import { MataGatosService } from './mataGatos.service';
+import { FavoritesService } from '../shared/services/favorites.service';
+import { MataGatosService } from '../shared/services/mataGatos.service';
 import { User } from '../shared/user.model';
 
 @Component({

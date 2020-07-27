@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { UsersService } from '../../users.service';
+import { UsersService } from '../../shared/services/users.service';
 
 @Component({
   selector: 'app-search',

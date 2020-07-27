@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 
-import { User } from '../shared/user.model';
+import { User } from '../user.model';
 
 @Injectable({ providedIn: 'root' })
 export class FavoritesService {

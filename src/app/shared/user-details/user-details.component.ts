@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Router, ResolveEnd, Event as NavigationEvent } from '@angular/router';
 
-import { UsersService } from '../../users.service';
-import { FavoritesService } from '../../header/favorites.service';
+import { UsersService } from '../services/users.service';
+import { FavoritesService } from '../services/favorites.service';
 import { User } from '../user.model';
 import { dobConverter } from '../../../helpers/dobConverter';
 

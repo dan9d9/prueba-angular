@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FavoritesService } from '../favorites.service';
+import { FavoritesService } from '../../shared/services/favorites.service';
 import { User } from '../../shared/user.model';
 
 @Component({
