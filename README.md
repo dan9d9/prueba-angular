@@ -25,6 +25,6 @@ The basic project contains all the required features, on top of the basic featur
 
 ## Improvements
 
-Infinity scrolling, probably utilizing `ngx-infinite-scroll`
-I think there's room to make some more reusable components. The pages, for instance, are almost identical and could be extracted into one component. 
+Infinity scrolling, probably utilizing `ngx-infinite-scroll`  
+I think there's room to make some more reusable components. The pages, for instance, are almost identical and could be extracted into one component.   
 I think a container for the user-list and user-details would be a good idea as well.
