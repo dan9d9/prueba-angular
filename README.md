@@ -1,27 +1,30 @@
-# PruebaAngular
+# Getting started
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.3.
+`git clone https://github.com/dan9d9/prueba-angular.git`  
+`cd prueba-angular`  
+`npm install`  
+
+1. You will need to register an account at https://gorest.co.in/ to receive a free API token in order to fetch the information.
+2. In the /src directory create a `config.ts` file and save `export const token = YOUR_TOKEN`;
+
+That's it for installation, now you can run the server!
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Extra Features
 
-## Build
+The basic project contains all the required features, on top of the basic features I have added:
+* El contador MataGatos
+* El 'dob' detalle
+* Search input debounce. After the user has entered at least 2 letters and stops typing for 1 second, the search is initiated automatically.
+* Remove a favorite user from the favorites modal
+* Upon clicking on the mataGatos image, a log of all server requests are shown.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Improvements
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Infinity scrolling, probably utilizing `ngx-infinite-scroll`
+I think there's room to make some more reusable components. The pages, for instance, are almost identical and could be extracted into one component. 
+I think a container for the user-list and user-details would be a good idea as well.
