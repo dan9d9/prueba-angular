@@ -45,7 +45,7 @@ export class UsersService {
         },
       })
       .subscribe((responseData) => {
-        this.mataGatosService.killCat();
+        this.mataGatosService.killCat(`${baseURL}/users?page=${page}`);
 
         this.currentPage = responseData._meta.currentPage;
         this.pageCount = responseData._meta.pageCount;
@@ -69,7 +69,7 @@ export class UsersService {
         },
       })
       .subscribe((responseData) => {
-        this.mataGatosService.killCat();
+        this.mataGatosService.killCat(`${baseURL}/users/${id}`);
 
         const changedUser = { ...responseData.result };
         const thisUserIdx = this.allUsers.findIndex((user) => user.id === id);
@@ -100,7 +100,9 @@ export class UsersService {
         }
       )
       .subscribe((responseData) => {
-        this.mataGatosService.killCat();
+        this.mataGatosService.killCat(
+          `${baseURL}/users?first_name=${searchField}&page=${page}`
+        );
 
         this.selectedUserChanged.emit();
         this.pageCount = responseData._meta.pageCount;

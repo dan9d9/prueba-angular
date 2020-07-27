@@ -10,7 +10,7 @@
         <p>{{ favoriteUsers.length }}</p>
       </div>
       <h2>Favorites</h2>
-      <button (click)="onCloseModal()">Close</button>
+      <button (click)="onToggleFavoritesModal()">Close</button>
     </header>
     <div
       *ngIf="favoriteUsers.length === 0; else showFavoriteUsers"

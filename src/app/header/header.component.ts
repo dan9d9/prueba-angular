@@ -17,8 +17,9 @@ import { User } from '../shared/user.model';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   favoritesCount: number = 0;
-  catsKilled: number = 0;
-  showModal: boolean = false;
+  catsKilledLog: string[] = [];
+  showFavoritesModal: boolean = false;
+  showMataGatosLog: boolean = false;
 
   links: string[] = ['owners', 'home', 'search'];
 
@@ -56,19 +57,23 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     this.favoritesModalSub = this.favoritesService.modalDisplayChanged.subscribe(
       (isModalDisplayed: boolean) => {
-        this.showModal = isModalDisplayed;
+        this.showFavoritesModal = isModalDisplayed;
       }
     );
 
     this.mataGatosSub = this.mataGatosService.anotherCatKilled.subscribe(
-      (numKilled: number) => {
-        this.catsKilled = numKilled;
+      (catsKilled: string[]) => {
+        this.catsKilledLog = catsKilled;
       }
     );
   }
 
-  onShowModal() {
+  onToggleFavoritesModal() {
     this.favoritesService.toggleModal();
+  }
+
+  onToggleMataGatoslog() {
+    this.showMataGatosLog = !this.showMataGatosLog;
   }
 
   ngOnDestroy() {

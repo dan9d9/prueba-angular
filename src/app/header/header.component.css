@@ -1,4 +1,5 @@
 header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,6 +13,25 @@ header {
 .header__div {
   display: flex;
   align-items: center;
+}
+
+.header__mataGatos-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  height: 200px;
+  padding: 0 2em;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--main-aqua);
+  overflow: auto;
+
+  border: var(--default-border);
+  border-top: none;
+  border-left: none;
 }
 
 .header__div:last-child {

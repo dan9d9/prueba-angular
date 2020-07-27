@@ -24,7 +24,7 @@ export class FavoritesModalComponent implements OnInit {
     );
   }
 
-  onCloseModal() {
+  onToggleFavoritesModal() {
     this.favoritesService.toggleModal();
   }
 }

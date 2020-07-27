@@ -1,19 +1,24 @@
 <header>
   <div class="header__div">
     <img
-      *ngIf="catsKilled < 1; else ohNo"
+      (click)="onToggleMataGatoslog()"
+      *ngIf="catsKilledLog.length < 1; else ohNo"
       src="../../assets/icons/evil-kitty.svg"
       alt="happy kitty face"
       class="header__img"
     />
     <ng-template #ohNo>
       <img
+        (click)="onToggleMataGatoslog()"
         src="../../assets/icons/surprised-kitty.png"
         alt="surprised kitty face"
         class="header__img"
       />
     </ng-template>
-    <p>{{ catsKilled }}</p>
+    <p>{{ catsKilledLog.length }}</p>
+    <ol *ngIf="showMataGatosLog" class="header__mataGatos-list">
+      <li *ngFor="let log of catsKilledLog">{{ log }}</li>
+    </ol>
   </div>
   <nav class="header__nav">
     <ul>
@@ -27,7 +32,7 @@
       </li>
     </ul>
   </nav>
-  <div (click)="onShowModal()" class="header__div">
+  <div (click)="onToggleFavoritesModal()" class="header__div">
     <img
       src="../../assets/icons/favorites-heart.svg"
       alt="a lovely heart"
@@ -36,4 +41,4 @@
     <p>{{ favoritesCount }}</p>
   </div>
 </header>
-<app-favorites-modal *ngIf="showModal"></app-favorites-modal>
+<app-favorites-modal *ngIf="showFavoritesModal"></app-favorites-modal>
