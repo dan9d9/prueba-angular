@@ -58,6 +58,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.favoritesModalSub = this.favoritesService.modalDisplayChanged.subscribe(
       (isModalDisplayed: boolean) => {
         this.showFavoritesModal = isModalDisplayed;
+        if (this.showFavoritesModal === true) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = '';
+        }
       }
     );
 

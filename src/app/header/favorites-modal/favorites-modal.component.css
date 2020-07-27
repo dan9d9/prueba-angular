@@ -1,5 +1,5 @@
 .favorites-modal__wrapper {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -72,4 +72,10 @@
   width: 100%;
   padding: 0.5em 1em;
   overflow: auto;
+}
+
+@media screen and (max-width: 400px) {
+  .favorites-modal {
+    min-width: 300px;
+  }
 }

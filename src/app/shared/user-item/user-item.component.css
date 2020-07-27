@@ -29,9 +29,26 @@
 
 .user-item__user-photo {
   border-radius: 50%;
+  max-width: 60px;
 }
 
 .user-item__remove-btn:hover,
 .user-item__remove-btn:focus {
   background-color: red;
+}
+
+@media screen and (max-width: 400px) {
+  .isFavoriteUser {
+    justify-content: center;
+    justify-items: center;
+    gap: 0.5em;
+  }
+
+  .isFavoriteUser p {
+    text-align: center;
+  }
+
+  .user-item__remove-btn {
+    grid-column: 1/ -1;
+  }
 }
