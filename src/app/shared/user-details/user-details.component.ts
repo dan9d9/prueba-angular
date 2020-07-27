@@ -50,8 +50,15 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
     // );
 
     this.allusersChanged = this.usersService.allUsersChanged.subscribe(
-      (changed: { users: User[]; changedUser: User | null }) => {
-        if (changed.changedUser !== null) {
+      (changed: {
+        users: User[];
+        searchedUsers: User[];
+        changedUser: User | null;
+        pageCount: number;
+        currentPage: number;
+        searchField: string;
+      }) => {
+        if (changed.changedUser) {
           this.displayedUser = changed.changedUser;
           this.isDisabled = this.favoritesService.isCurrentUserAFavorite(
             this.displayedUser.id

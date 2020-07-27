@@ -9,22 +9,19 @@ import { MataGatosService } from './header/mataGatos.service';
 export class UsersService {
   allUsersChanged = new EventEmitter<{
     users: User[];
-    changedUser?: User;
-    pageCount: number;
-    currentPage: number;
-  }>();
-  selectedUserChanged = new EventEmitter<User>();
-  searchedUsersChanged = new EventEmitter<{
-    users: User[];
+    searchedUsers: User[];
+    changedUser: User | null;
     pageCount: number;
     currentPage: number;
     searchField: string;
   }>();
+  selectedUserChanged = new EventEmitter<User>();
   userPhotoFetched = new EventEmitter<string>();
 
   private allUsers: User[] = [];
   private selectedUser: User;
   private searchedUsers: User[] = [];
+  private searchField: string;
   private pageCount: number;
   private currentPage: number;
   private userPhoto: string;
@@ -40,6 +37,7 @@ export class UsersService {
   }
 
   fetchUsers(page: number) {
+    this.searchField = '';
     this.http
       .get<{ _meta: any; result: User[] }>(`${baseURL}/users?page=${page}`, {
         headers: {
@@ -47,7 +45,6 @@ export class UsersService {
         },
       })
       .subscribe((responseData) => {
-        console.log(responseData);
         this.mataGatosService.killCat();
 
         this.currentPage = responseData._meta.currentPage;
@@ -55,9 +52,11 @@ export class UsersService {
         this.allUsers = [...this.allUsers, ...responseData.result];
         this.allUsersChanged.emit({
           users: this.allUsers.slice(),
+          searchedUsers: this.searchedUsers,
           changedUser: null,
           pageCount: this.pageCount,
           currentPage: this.currentPage,
+          searchField: this.searchField,
         });
       });
   }
@@ -76,17 +75,21 @@ export class UsersService {
         const thisUserIdx = this.allUsers.findIndex((user) => user.id === id);
 
         this.allUsers[thisUserIdx] = { ...changedUser };
+        this.searchedUsers[thisUserIdx] = { ...changedUser };
 
         this.allUsersChanged.emit({
           users: this.allUsers.slice(),
+          searchedUsers: this.searchedUsers.slice(),
           changedUser,
-          pageCount: null,
-          currentPage: null,
+          pageCount: this.pageCount,
+          currentPage: this.currentPage,
+          searchField: this.searchField,
         });
       });
   }
 
   fetchSearchedUsers(searchField: string, page: number) {
+    this.searchField = searchField;
     this.http
       .get<{ _meta: any; result: User[] }>(
         `${baseURL}/users?first_name=${searchField}&page=${page}`,
@@ -108,8 +111,10 @@ export class UsersService {
           this.searchedUsers = [...this.searchedUsers, ...responseData.result];
         }
 
-        this.searchedUsersChanged.emit({
-          users: this.searchedUsers,
+        this.allUsersChanged.emit({
+          users: this.searchedUsers.slice(),
+          searchedUsers: this.searchedUsers.slice(),
+          changedUser: null,
           pageCount: this.pageCount,
           currentPage: this.currentPage,
           searchField,
@@ -118,21 +123,20 @@ export class UsersService {
       });
   }
 
-  fetchUserPhoto(userID) {
-    console.log(userID);
-    this.http
-      .get<{ _meta: any; result: any }>(`${baseURL}/photos/${userID}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .subscribe((responseData) => {
-        console.log(responseData);
-        this.mataGatosService.killCat();
-        this.userPhoto = responseData.result.thumbnail;
-        this.userPhotoFetched.emit(this.userPhoto);
-      });
-  }
+  // fetchUserPhoto(userID) {
+  //   this.http
+  //     .get<{ _meta: any; result: any }>(`${baseURL}/photos/${userID}`, {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     })
+  //     .subscribe((responseData) => {
+  //       console.log(responseData);
+  //       this.mataGatosService.killCat();
+  //       this.userPhoto = responseData.result.thumbnail;
+  //       this.userPhotoFetched.emit(this.userPhoto);
+  //     });
+  // }
 
   getSelectedUser(): User {
     return { ...this.selectedUser };

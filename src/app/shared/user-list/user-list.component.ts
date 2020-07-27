@@ -17,7 +17,6 @@ export class UserListComponent implements OnInit, OnDestroy {
   searchField: string;
 
   allChangedSub: Subscription;
-  searchChangedSub: Subscription;
 
   constructor(private usersService: UsersService) {}
 
@@ -28,32 +27,22 @@ export class UserListComponent implements OnInit, OnDestroy {
     this.allChangedSub = this.usersService.allUsersChanged.subscribe(
       (changed: {
         users: User[];
+        searchedUsers: User[];
         changedUser: User | null;
-        pageCount: number | null;
-        currentPage: number | null;
-      }) => {
-        if (changed.pageCount) {
-          this.totalPages = changed.pageCount;
-        }
-
-        this.currentPage = changed.currentPage;
-        this.users = changed.users;
-        this.isFetching = false;
-        this.searchField = '';
-      }
-    );
-
-    this.searchChangedSub = this.usersService.searchedUsersChanged.subscribe(
-      (results: {
-        users: User[];
         pageCount: number;
         currentPage: number;
         searchField: string;
       }) => {
-        this.currentPage = results.currentPage;
-        this.totalPages = results.pageCount;
-        this.users = [...results.users];
-        this.searchField = results.searchField;
+        this.totalPages = changed.pageCount;
+        this.currentPage = changed.currentPage;
+        this.isFetching = false;
+        if (changed.searchField) {
+          this.users = [...changed.searchedUsers];
+          this.searchField = changed.searchField;
+        } else {
+          this.users = [...changed.users];
+          this.searchField = '';
+        }
       }
     );
   }
@@ -69,6 +58,5 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.allChangedSub.unsubscribe();
-    this.searchChangedSub.unsubscribe();
   }
 }

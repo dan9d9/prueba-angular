@@ -1,4 +1,4 @@
-.flex-wrapper {
+.grid-wrapper {
   display: grid;
   grid-template-columns: repeat(2, minmax(300px, 40%));
   grid-template-rows: 100%;
