@@ -5,6 +5,7 @@
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr;
   align-items: center;
+  gap: 0 0.5em;
 
   border: solid 1px black;
   border-radius: 8px;
@@ -23,4 +24,9 @@
   cursor: default;
   grid-template-columns: 1.5fr 1fr 1fr 0.5fr;
   padding: 0.5em;
+}
+
+.user-item__remove-btn:hover,
+.user-item__remove-btn:focus {
+  background-color: red;
 }

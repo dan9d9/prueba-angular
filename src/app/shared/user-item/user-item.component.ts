@@ -33,6 +33,7 @@ export class UserItemComponent implements OnInit {
   }
 
   onUserClick() {
+    if (this.isFavoriteUser) return;
     this.usersServices.changeSelectedUser(this.user);
     this.isActive = true;
   }

@@ -9,5 +9,11 @@
   <p>{{ user.first_name }} {{ user.last_name }}</p>
   <p>{{ user.gender }}</p>
   <p>{{ user.status }}</p>
-  <button *ngIf="isFavoriteUser" (click)="onRemoveFavorite()">Remove</button>
+  <button
+    class="user-item__remove-btn"
+    *ngIf="isFavoriteUser"
+    (click)="onRemoveFavorite()"
+  >
+    Remove
+  </button>
 </li>

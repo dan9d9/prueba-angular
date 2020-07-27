@@ -87,7 +87,7 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.userChangedSub.unsubscribe();
-    this.userPhotoFetched.unsubscribe();
+    // this.userPhotoFetched.unsubscribe();
     this.allusersChanged.unsubscribe();
     this.favoritesChanged.unsubscribe();
   }
