@@ -2,8 +2,7 @@
 
 `git clone https://github.com/dan9d9/prueba-angular.git`  
 `cd prueba-angular`  
-`npm install`  
-'test'
+`npm install`
 
 1. You will need to register an account at https://gorest.co.in/ to receive a free API token in order to fetch the information.
 2. In the /src directory create a `config.ts` file and save `export const token = YOUR_TOKEN`;
